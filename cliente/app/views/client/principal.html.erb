@@ -1,0 +1,62 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Fecha</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @result.each do |event| %>
+  
+	<% dateJson = event['date'].to_s %>
+	<% if(@opcion == 1) %>
+		<% if(@date == dateJson) %>
+			<tr>
+				<td><%= event['name'] %></td>
+				<td><%= event['date'] %></td>
+				<td><%= event['description'] %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	
+	<% if(@opcion == 2) %>
+		<% if(@date[0] == dateJson[0] && @date[1] == dateJson[1] && @date[2] == dateJson[2] && @date[3] == dateJson[3]) %>
+			<% d2 = dateJson.to_date.cweek.to_s %>
+			<% if(@d1 == d2) %>
+				<tr>
+					<td><%= event['name'] %></td>
+					<td><%= event['date'] %></td>
+					<td><%= event['description'] %></td>
+				</tr>
+			<% end %>
+		<% end %>
+	<% end %>
+	
+	<% if(@opcion == 3) %>
+		<% if(@date[0] == dateJson[0] && @date[1] == dateJson[1] && @date[2] == dateJson[2] && @date[3] == dateJson[3] && @date[5] == dateJson[5] && @date[6] == dateJson[6]) %>
+			<tr>
+				<td><%= event['name'] %></td>
+				<td><%= event['date'] %></td>
+				<td><%= event['description'] %></td>
+			</tr>
+		<% end %>
+	<% end %>
+	
+	<% if(@opcion == 4) %>
+		<% if(@date[0] == dateJson[0] && @date[1] == dateJson[1] && @date[2] == dateJson[2] && @date[3] == dateJson[3]) %>
+			<tr>
+				<td><%= event['name'] %></td>
+				<td><%= event['date'] %></td>
+				<td><%= event['description'] %></td>
+			</tr>
+		<% end %>
+	<% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', '/' %>
+
+<%= @prueba %>

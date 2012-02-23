@@ -1,0 +1,48 @@
+[{"created_at":"2012-02-23T00:39:48Z","date":"2012-02-22","description":"segundo evento propiciado","id":2,"name":"Segundo evento","updated_at":"2012-02-23T02:26:35Z"}]
+[{"created_at"=>"2012-02-23T00:39:48Z", "date"=>"2012-02-22", "description"=>"segundo evento propiciado", "id"=>2, "name"=>"Segundo evento", "updated_at"=>"2012-02-23T02:26:35Z"}]
+
+@json = @result
+		
+		@imprimir = "2223"
+		@imprimir.reverse
+		
+		@imprimir = "["
+		
+		@json.each do |i|
+			@dateJson = i['date'].to_s
+
+			if(@date == @dateJson)
+				if(@imprimir != "[")
+					@imprimir << ", "
+				end
+				@aux = i.to_s
+				@imprimir << @aux
+			end
+		end
+		@imprimir << "]"
+		
+		
+		
+		
+			<% valido = 0 %>
+			<% dia1 = @date[8]+@date[9] %>
+			<% dia1 = dia1.to_i %>
+		
+			<% dia2 = dateJson[8]+dateJson[9] %>
+			<% dia2 = dia2.to_i %>
+			
+			<$ resta = dia2-dia1 %>
+			<% if (resta < 7) %>
+				<% if(@date[5] == dateJson[5] && @date[6] == dateJson[6]) %>
+					<% valido = 1 %>
+				<% else %>
+					<% if (resta < 0) %>
+						<% mes1 = @date[5]+@date[6] %>
+						<% mes1 = mes1.to_i %>
+		
+						<% mes2 = dateJson[5]+dateJson[6] %>
+						<% mes2 = mes2.to_i %>
+						<% if(mes2-mes1 == 1) %>
+							
+			
+		@prueba = @dia2 - @dia1

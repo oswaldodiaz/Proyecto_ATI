@@ -1,0 +1,10 @@
+<form id = "formulario" action = "/eventos" method="POST">
+
+	<label for='formulario'>opcion:</label>
+	<%= select( "payment", "id", { "Dia" => "1", "Semana" => "2", "Mes" => "3", "7 dias en adelante" => "4"}) %>
+	<p>
+	<label for='formulario'>Fecha:</label>
+	<%= select_date Date.today, :prefix => :start_date %>
+	<p>
+	<input id="boton" type="submit" value="Submit">
+</form>
